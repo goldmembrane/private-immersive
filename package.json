@@ -18,6 +18,8 @@
     "underbar"
   ],
   "author": "codesatates",
-  "dependencies": {},
+  "dependencies": {
+    "jest": "^25.4.0"
+  },
   "devDependencies": {}
 }
