@@ -7,10 +7,6 @@ if (TRAVIS_PULL_REQUEST_SLUG === '\n') {
 }
 
 exec('jest --json', (err, json, stderr) => {
-  if (err) {
-    console.error(err);
-    throw new Error('run-test-failed');
-  }
   const result = JSON.parse(json);
   const username = TRAVIS_PULL_REQUEST_SLUG.split('/')[0];
 
