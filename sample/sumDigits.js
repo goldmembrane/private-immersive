@@ -15,14 +15,18 @@ function sumDigits(num) {
   let result=0;
   let stringed=String(num);
   if(stringed[0]==='-'){
-    let result=Number('-'+stringed[1])
-    for(let i=2 ; i<stringed.length ; i++){
-      result=result+Number(stringed[i])
-    }
+    stringed = stringed.split('');
+    let a, b, rest;
+    [a, b, ...rest] = stringed;
+    let result=Number(`${a}` + `${b}`);
+    console.log(result);
+    for( const element of rest ){
+      result=result+Number(element)
+     }
     return result
   } else
-  for(let i=0 ; i<stringed.length ; i++){
-   result=result+Number(stringed[i])
+  for( const element of stringed ){
+   result=result+Number(element)
   }
   return result
 }

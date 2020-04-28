@@ -22,9 +22,10 @@
 
 */
 
-function transformEmployeeData(array) {
+function transformEmployeeData(args) {
+  let array = [...args];
   let arrayed = [];
-  let tempResult=[]
+  let tempResult=[];
    for(let i=0 ; i<array.length ; i++){
     let temp= array[i].reduce(function(acc, cur){
        return acc.concat(cur)
