@@ -22,7 +22,43 @@ fn(); // 5
 */
 
 function makeFib() {
-  // your code here
+  let result=0;
+  let count=0
+  let bool;
+  return function (){
+    function fib(num, check=true){
+      let cnt=0;
+      bool=check
+      if(bool===false){
+        cnt=num
+      } else if(bool===true){
+        cnt=count
+      }
+      if(cnt===0){
+        if(bool===true){
+        count=count+1
+        }
+        bool=true
+        return 0;
+      }
+      else if(cnt===1){
+        if(bool===true){
+        count=count+1
+        }
+        bool=true
+        return 1;
+      }
+      else if(cnt>=2){
+       if(bool===true){
+        count=count+1
+       }
+       return fib(cnt-1, false)+fib(cnt-2, false)
+      }
+    }
+    return fib(count, bool)
+  }
 }
 
-module.exports = makeFib;
+if(typeof window === 'undefined') {
+  module.exports = makeFib;
+}

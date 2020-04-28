@@ -9,7 +9,8 @@
   { firstName: 'Mary', lastName: 'Jenkins', age: 36, role: 'manager' }
 ];
 
-위의 배열이 input으로 주어진다면, transformAsHTML을 통해 container라는 id를 가진 엘리먼트에 다음과 같이 HTML로 렌더링되어야 합니다.
+위의 배열이 input으로 주어진다면, SpecRunner의 transformAsHTML 결과 창이 다음과 같은 HTML로 렌더링되어야 합니다.
+SpecRunner.html 파일을 열어보면, transformAsHTML 결과 창을 어떻게 접근해야 하는지 알 수 있습니다.
 
 <ul id="container">
   <li>
@@ -22,29 +23,47 @@
   </li>
 </ul>
 
-* Note 1:
+* Note:
 <a> 태그로 만들어진 사원의 이름을 클릭할 경우, 제공되는 printRole 함수를 실행하여,
 해당 사원의 role이 콘솔에 출력되도록 하십시오.
 
-* Note 2:
-여기에는 HTML 파일이 존재하지 않으므로 <template>을 사용할 수 없습니다.
-
 */
-
-global.printRole = function(user) {
+function printRole(user) {
   // Joe Blow를 클릭하면 clerk 이
   // Mary Jenkins를 클릭하면 manager 가 찍힙니다.
   // 이 함수는 수정하지 마십시오.
-
-  // global이라는 낯선 개념이 등장했지만, 걱정하지 마세요.
-  // 이 함수 역시 printRole(user) 로 호출할 수 있습니다.
   console.log(user.role);
-};
-
-function transformAsHTML(array) {
-  let container = document.querySelector("#container");
-
-  // your code here
 }
 
-module.exports = transformAsHTML;
+
+function transformAsHTML(array) {
+
+  let ul=document.getElementById('container')
+
+  for(i=0 ; i<array.length ; i++){
+  let li=document.createElement('li')
+  let usera=document.createElement('a')
+  usera.className='name'
+  let userdiv=document.createElement('div')
+  userdiv.className='age'
+
+  usera.textContent=array[i].firstName+' '+array[i].lastName
+  userdiv.textContent=array[i].age
+  
+  let pass=array[i]
+
+  usera.onclick=function(){
+    printRole(pass)
+  }
+
+  li.appendChild(usera)
+  li.appendChild(userdiv)
+  
+  ul.appendChild(li)
+}
+}
+
+transformAsHTML([
+  { firstName: 'Joe', lastName: 'Blow', age: 42, role: 'clerk' },
+  { firstName: 'Mary', lastName: 'Jenkins', age: 36, role: 'manager' }
+])

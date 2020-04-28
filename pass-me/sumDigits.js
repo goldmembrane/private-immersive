@@ -12,7 +12,26 @@ console.log(output2); // --> 4
 */
 
 function sumDigits(num) {
-  // your code here
+  let result=0;
+  let stringed=String(num);
+  if(stringed[0]==='-'){
+    stringed = stringed.split('');
+    let a, b, rest;
+    [a, b, ...rest] = stringed;
+    let result=Number(`${a}` + `${b}`);
+    console.log(result);
+    for( const element of rest ){
+      result=result+Number(element)
+     }
+    return result
+  } else
+  for( const element of stringed ){
+   result=result+Number(element)
+  }
+  return result
 }
 
-module.exports = sumDigits;
+// keep this code for testing
+if(typeof window === 'undefined') {
+  module.exports = sumDigits;
+}

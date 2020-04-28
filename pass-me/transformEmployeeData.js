@@ -22,8 +22,28 @@
 
 */
 
-function transformEmployeeData(array) {
-  // your code here
-}
+function transformEmployeeData(args) {
+  let array = [...args];
+  let arrayed = [];
+  let tempResult=[];
+   for(let i=0 ; i<array.length ; i++){
+    let temp= array[i].reduce(function(acc, cur){
+       return acc.concat(cur)
+      })
+       arrayed.push(temp)
+   }
+   arrayed.map(function(arr){
+    let obj={}
+    for(let j=0; j+1<arr.length ; j=j+2){
+   obj[arr[j]]=arr[j+1]
+   }
+   tempResult.push(obj)
+   })
+    
+  return tempResult
+  }
 
-module.exports = transformEmployeeData;
+// keep this code for testing
+if(typeof window === 'undefined') {
+  module.exports = transformEmployeeData;
+}

@@ -11,9 +11,37 @@ let output = countWords('ask a bunch get a bunch');
 console.log(output); // --> {ask: 1, a: 2, bunch: 2, get: 1}
 */
 
+function countWords(input) {
+ 
+  if (input === '') {
+    return {};
+  }
 
-function countWords(input) { // eslint-disable-line no-unused-vars
-  // your code here
+  let stringArr = input.split(' ');
+  let outputObj = {};
+
+  stringArr.forEach(element => {
+
+    outputObj[element] = 0;
+
+  });
+
+
+  for (let key in outputObj) {
+    stringArr.forEach(element => {
+
+      if (key === element) {
+        outputObj[key]++;
+      }
+
+    });
+  }
+  console.log(outputObj);
+
+  return outputObj;
 }
 
-module.exports = countWords;
+// keep this code for testing
+if (typeof window === 'undefined') {
+  module.exports = countWords;
+}
