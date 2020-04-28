@@ -22,11 +22,10 @@ fn(); // 5
 */
 
 function makeFib() {
-  let result=0;
   let count=0
   let bool;
-  return function (){
-    function fib(num, check=true){
+  return () => {
+    function fib(num, check=true) {
       let cnt=0;
       bool=check
       if(bool===false){

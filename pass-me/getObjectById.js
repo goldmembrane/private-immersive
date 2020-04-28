@@ -72,12 +72,12 @@ let TREE_DATA = {
 };
 
 function getObjectById(json, id) {
-  for(let i=0 ; i<json.length ; i++){
-    if(('id' in json[i]) && (json[i].id===id)){
-      return json[i]
+  for(let items of json ){
+    if(('id' in items) && (items.id===id)){
+      return items
     }
-   else if(('children' in json[i]) && (Array.isArray(json[i].children))){
-      return getObjectById(json[i].children,id)
+   else if(('children' in items) && (Array.isArray(items.children))){
+      return getObjectById(items.children,id)
     }
   }
 }

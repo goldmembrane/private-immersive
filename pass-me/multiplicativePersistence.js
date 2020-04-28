@@ -14,7 +14,6 @@ multiplicativePersistence 함수는 양수를 파라미터로 받는 함수로,
 */
 
 function multiplicativePersistence(num) {
-    let count=0;
      let result=String(num).split('').reduce((acc,cur) => {
        return acc * cur
      },1)

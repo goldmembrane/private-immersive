@@ -40,19 +40,19 @@ function transformAsHTML(array) {
 
   let ul=document.getElementById('container')
 
-  for(i=0 ; i<array.length ; i++){
+  for( let element of array ){
   let li=document.createElement('li')
   let usera=document.createElement('a')
   usera.className='name'
   let userdiv=document.createElement('div')
   userdiv.className='age'
 
-  usera.textContent=array[i].firstName+' '+array[i].lastName
-  userdiv.textContent=array[i].age
+  usera.textContent=element.firstName+' '+element.lastName
+  userdiv.textContent=element.age
   
-  let pass=array[i]
+  let pass=element;
 
-  usera.onclick=function(){
+  usera.onclick=() => {
     printRole(pass)
   }
 
