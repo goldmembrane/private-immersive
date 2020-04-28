@@ -12,23 +12,36 @@ console.log(output); // --> {ask: 1, a: 2, bunch: 2, get: 1}
 */
 
 function countWords(input) {
-  if(typeof(input)==='string' && input.length===0){
-    return {}
+ 
+  if (input === '') {
+    return {};
   }
-  else if(typeof(input)==='string'){
-    let splited=input.split(' ');
-    let result={}
-    for(let i=0 ; i<splited.length ; i++){
-      if(!(splited[i] in result)){
-        result[splited[i]]=1
-      } else
-      result[splited[i]]++
-    }
-    return result
+
+  let stringArr = input.split(' ');
+  let outputObj = {};
+
+  stringArr.forEach(element => {
+
+    outputObj[element] = 0;
+
+  });
+
+
+  for (let key in outputObj) {
+    stringArr.forEach(element => {
+
+      if (key === element) {
+        outputObj[key]++;
+      }
+
+    });
   }
+  console.log(outputObj);
+
+  return outputObj;
 }
 
 // keep this code for testing
-if(typeof window === 'undefined') {
+if (typeof window === 'undefined') {
   module.exports = countWords;
 }
