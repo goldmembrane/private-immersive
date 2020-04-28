@@ -18,8 +18,9 @@
     "underbar"
   ],
   "author": "codesatates",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^6.8.0",
     "jest": "^25.4.0"
-  },
-  "devDependencies": {}
+  }
 }
