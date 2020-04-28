@@ -11,8 +11,9 @@ let output = countWords('ask a bunch get a bunch');
 console.log(output); // --> {ask: 1, a: 2, bunch: 2, get: 1}
 */
 
-function countWords(input) { // eslint-disable-line no-unused-vars
 
+function countWords(input) { // eslint-disable-line no-unused-vars
+  // your code here
 }
 
 module.exports = countWords;
